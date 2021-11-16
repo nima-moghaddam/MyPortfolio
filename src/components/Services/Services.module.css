@@ -53,8 +53,6 @@
   margin: 2%;
 }
 
-
-
 .service_main__topPart div:hover,
 .service_main__botPart div:hover {
   background-color: #ff4a57;
@@ -88,9 +86,6 @@
   filter: brightness(2200%);
   animation: spin 0.5s linear;
 }
-
-
-
 
 @keyframes spin {
   0% {
@@ -128,5 +123,11 @@
   }
   .service_intro p {
     white-space: normal;
+  }
+}
+
+@media (max-width: 550px) {
+  .service {
+    width: 550px;
   }
 }

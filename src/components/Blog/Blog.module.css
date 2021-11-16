@@ -140,3 +140,10 @@
     top: none;
   }
 }
+
+@media (max-width: 550px) {
+  .blog {
+    width: 550px;
+  }
+  
+}

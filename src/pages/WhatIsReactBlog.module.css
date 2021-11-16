@@ -185,3 +185,9 @@
     width: 400px;
   }
 }
+
+@media (max-width: 550px) {
+  .blog {
+    width: 550px;
+  }
+}

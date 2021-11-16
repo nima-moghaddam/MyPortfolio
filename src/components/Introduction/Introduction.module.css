@@ -46,8 +46,8 @@
   background-color: #1f2235;
   border: 2px solid #ff4a57;
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   margin: 0.7rem;
   display: flex;
   align-items: center;
@@ -121,5 +121,22 @@
   }
   .intro_card_details {
     margin-right: 0;
+  }
+}
+
+@media (max-width: 550px) {
+  .intro {
+    width: 550px;
+  }
+  .intro_card_details {
+    width: 100%;
+  }
+  .intro_card_details h1 {
+    font-size: 2rem;
+  }
+  .intro_card_details li {
+    width: 45px;
+    height: 45px;
+    margin: 0.9rem;
   }
 }

@@ -104,7 +104,7 @@
 }
 
 @media (max-width: 850px) {
-  .contact{
+  .contact {
     height: 1300px;
   }
   .contact_address {
@@ -139,6 +139,12 @@
   }
   .contact_address__box div {
     margin: 6% -3%;
+  }
+}
+
+@media (max-width: 550px) {
+  .contact {
+    width: 550px
   }
 }
 
