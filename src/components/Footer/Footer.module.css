@@ -1,0 +1,81 @@
+.footer {
+  width: 100%;
+  height: 450px;
+  background-color: #23263a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 400x;
+  margin-top: 1%;
+}
+
+.footer h2 {
+  color: white;
+  font-size: 3rem;
+  font-family: "Poppins";
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  margin-bottom: 2%;
+}
+
+.footer h2 span {
+  color: #ff4a57;
+  font-size: 2.5rem;
+}
+
+.footer p {
+  color: white;
+  font-family: "iranSans";
+  font-size: 1rem;
+  white-space: normal;
+  text-align: center;
+}
+
+.footer_card div {
+  margin-right: -10%;
+}
+
+.footer_card div ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+
+.footer_card img {
+  width: 25px;
+  cursor: pointer;
+}
+
+.footer_card li {
+  margin: 5%;
+  background-color: #1f2235;
+  padding: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color linear 0.3s;
+}
+
+.footer_card li:hover {
+  background-color: #ff4a57;
+}
+
+@media (max-width: 500px) {
+  .footer h2 {
+    font-size: 2.7rem;
+  }
+  .footer h2 span {
+    font-size: 2.3rem;
+  }
+  .footer p {
+    font-size: 0.8rem;
+  }
+}

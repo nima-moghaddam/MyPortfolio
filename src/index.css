@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+@font-face {
+  font-family: "iranSans";
+  font-weight: normal;
+  src: url("./assets/fonts/IRANSansWeb.woff") format("woff");
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap");
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgba(255, 255, 255, 0.835);
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: rgba(255, 255, 255, 0.835);
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: rgba(255, 255, 255, 0.835);
+}

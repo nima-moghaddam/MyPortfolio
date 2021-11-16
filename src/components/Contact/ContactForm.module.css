@@ -1,0 +1,141 @@
+.form {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: -3%;
+}
+
+.form input,
+.form textarea {
+  background-color: #23263a;
+  font-family: "iranSans";
+  font-size: 1rem;
+  white-space: nowrap;
+  border-radius: 5px;
+  border: none;
+  resize: none;
+  outline: none;
+  padding: 2%;
+  margin: 1%;
+  color: white;
+}
+
+.form input:focus,
+.form textarea:focus {
+  border: white solid 1px;
+}
+
+.form_name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form_name input {
+  width: 570px;
+}
+
+.form_subject {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form_subject input {
+  width: 1070px;
+}
+
+.form_subject textarea {
+  width: 1070px;
+  height: 150px;
+}
+
+.invalid {
+  border: #ff4a57 solid 1px !important;
+}
+
+.form button {
+  background-color: #1f2235;
+  color: white;
+  width: 200px;
+  height: 50px;
+  border-radius: 1.5rem;
+  font-family: "iranSans";
+  font-size: 1.2rem;
+  white-space: nowrap;
+  border: 2px solid #ff4a57;
+  margin-right: -86%;
+  margin-top: 2%;
+  cursor: pointer;
+  transition: background-color linear 0.2s;
+}
+
+.form button:hover {
+  background-color: #fc727b;
+  border: 2px solid #fc727b;
+}
+
+.form button:disabled {
+  border: 2px solid #ff4a57;
+  background-color: #ff4a57;
+}
+
+@media (max-width: 1150px) {
+  .form_name input {
+    width: 420px;
+  }
+  .form_subject input,
+  .form_subject textarea {
+    width: 790px;
+  }
+  .form button {
+    margin-right: -80%;
+  }
+}
+
+@media (max-width: 850px) {
+  .form_name {
+    flex-direction: column;
+  }
+  .form {
+    height: 700px;
+    margin-top: -3%;
+  }
+  .form_name input {
+    width: 570px;
+  }
+  .form_subject input,
+  .form_subject textarea {
+    width: 570px;
+  }
+  .form button {
+    margin-right: -70%;
+  }
+  .form input,
+  .form textarea {
+    margin: 1.5%;
+    padding: 3%;
+  }
+}
+
+@media (max-width: 650px) {
+  .form {
+    height: 700px;
+    margin-top: -3%;
+  }
+  .form_name input {
+    width: 380px;
+  }
+  .form_subject input,
+  .form_subject textarea {
+    width: 380px;
+  }
+  .form button {
+    margin-right: -53%;
+    margin-top: 3%;
+  }
+}

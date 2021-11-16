@@ -1,0 +1,125 @@
+.intro {
+  width: 100%;
+  height: 800px;
+  background-color: #24263b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro_card {
+  width: 60%;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.intro_card img {
+  width: 500px;
+  height: 700px;
+  cursor: auto !important;
+  object-fit: fill;
+  margin-left: 3%;
+}
+
+.intro_card_details {
+  width: 400px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 3%;
+}
+
+.intro_card_details ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -1%;
+  padding: 1rem;
+}
+
+.intro_card_details li {
+  background-color: #1f2235;
+  border: 2px solid #ff4a57;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, linear 0.2s;
+}
+
+.intro_card_details li:hover {
+  background-color: #ff4a57;
+}
+
+.intro_card_details li img {
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro_card_details h1 {
+  color: white;
+  font-family: "iranSans";
+  font-size: 3rem;
+  white-space: nowrap;
+}
+
+.intro_card_details p {
+  color: white;
+  font-family: "iranSans";
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.intro_card_details button {
+  color: white;
+  background-color: #24263b;
+  font-size: 1rem;
+  font-family: "iranSans";
+  font-weight: bold;
+  white-space: nowrap;
+  border-radius: 2rem;
+  border: 2px solid #ff4a57;
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  transition: background-color linear 0.2s;
+}
+
+.intro_card_details button:hover {
+  background-color: #ff4a57;
+}
+
+@media (max-width: 1600px) {
+  .intro_card img {
+    width: 400px;
+  }
+  .intro_card_details h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 880px) {
+  .intro {
+    height: 500px;
+  }
+  .intro_card img {
+    width: 0;
+    height: 0;
+    margin-left: 0;
+  }
+  .intro_card_details {
+    margin-right: 0;
+  }
+}
