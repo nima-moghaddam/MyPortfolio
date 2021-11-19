@@ -1,15 +1,32 @@
 import React from "react";
 import classes from "./Introduction.module.css";
+import { motion } from "framer-motion";
+
 import telegramIcon from "./../../assets/svg/telegram-fill.svg";
 import emailIcon from "./../../assets/svg/mail-fill.svg";
 import gitIcon from "./../../assets/svg/github-fill.svg";
 import whatsappIcon from "./../../assets/svg/whatsapp-fill.svg";
 import introImg from "./../../assets/svg/intro-img.svg";
 
+const introMotion = {
+  viewed: {
+    opacity: [0, 1],
+    transition: {
+      duration: 1,
+      type: "spring",
+      delay: 0.2,
+    },
+  },
+};
+
 const Introduction = React.forwardRef((props, ref) => {
   return (
     <section ref={ref} className={classes.intro}>
-      <div className={classes.intro_card}>
+      <motion.div
+        className={classes.intro_card}
+        variants={introMotion}
+        animate="viewed"
+      >
         <img src={introImg} alt="معرفی" />
         <div className={classes.intro_card_details}>
           <h1 className="animate__animated animate__backInDown">
@@ -19,7 +36,7 @@ const Introduction = React.forwardRef((props, ref) => {
             برنامه نویس و توسعه دهنده وب
           </p>
           <p className="animate__animated animate__zoomIn">
-            حوزه کاری مورد علاقه من فرانت انده
+            و علاقه مند به طراحی و خلق ایده های جدید
           </p>
           <ul>
             <li>
@@ -48,7 +65,7 @@ const Introduction = React.forwardRef((props, ref) => {
           </ul>
           <button onClick={props.goToContact}>تماس با من</button>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 });

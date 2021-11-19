@@ -1,11 +1,40 @@
 import React from "react";
 import classes from "./ContactForm.module.css";
 import useInput from "../../hook/use-input";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const isNotEmpty = (value) => value.trim() !== "";
 const isEmail = (value) => value.includes("@");
 
+const formMotion = {
+  viewed: {
+    opacity: 0,
+    transition: {
+      duration: 1,
+      type: "spring",
+      delay: 0.2,
+    },
+  },
+};
+
 const ContactForm = () => {
+  const { ref: vref, inView: inView } = useInView({
+    triggerOnce: true,
+    threshold: 1,
+  });
+
+  if (inView) {
+    formMotion.viewed = {
+      opacity: 1,
+      transition: {
+        duration: 1,
+        type: "spring",
+        delay: 0.2,
+      },
+    };
+  }
+
   const {
     valueChangeHandler: FnameChangeHandler,
     inputBlurHandler: FnameBlurHandler,
@@ -90,7 +119,13 @@ const ContactForm = () => {
   const subjectClasses = subjectHasError ? `${classes.invalid}` : "";
 
   return (
-    <form className={classes.form} onSubmit={formSubmitHandler}>
+    <motion.form
+      className={classes.form}
+      onSubmit={formSubmitHandler}
+      ref={vref}
+      variants={formMotion}
+      animate="viewed"
+    >
       <div className={classes.form_name}>
         <input
           type="text"
@@ -129,7 +164,7 @@ const ContactForm = () => {
           ارسال پیغام
         </button>
       </div>
-    </form>
+    </motion.form>
   );
 };
 

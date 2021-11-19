@@ -51,11 +51,7 @@
   width: 400px;
   height: 350px;
   margin: 2%;
-}
-
-.service_main__topPart div:hover,
-.service_main__botPart div:hover {
-  background-color: #ff4a57;
+  cursor: pointer;
 }
 
 .service_main__topPart h3,
@@ -77,14 +73,6 @@
 .service_main__topPart img,
 .service_main__botPart img {
   margin: 6%;
-}
-
-.img1,
-.img2,
-.img3,
-.img4 {
-  filter: brightness(2200%);
-  animation: spin 0.5s linear;
 }
 
 @keyframes spin {

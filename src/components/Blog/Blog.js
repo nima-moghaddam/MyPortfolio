@@ -1,21 +1,76 @@
 import React, { useState } from "react";
 import classes from "./Blog.module.css";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { NavLink } from "react-router-dom";
+
 import reactImg from "./../../assets/img-blog/react.jpg";
 import fronttoolsImg from "./../../assets/img-blog/tools.jpg";
 import futurecodingImg from "./../../assets/img-blog/futureprogramming.jpg";
 import arrow from "./../../assets/img-blog/arrow-left.png";
-import { NavLink } from "react-router-dom";
+
+const blogMotion = {
+  viewed1: {
+    opacity: 0,
+  },
+  viewed2: {
+    opacity: 0,
+  },
+  viewed3: {
+    opacity: 0,
+  },
+  hover: {
+    scale: 1.05,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
 
 const Blog = React.forwardRef((props, ref) => {
-  const [linkHover, setLinkHover] = useState({
-    icon1: false,
-    icon2: false,
-    icon3: false,
+  const { ref: v1ref, inView: inView1 } = useInView({
+    triggerOnce: true,
+    threshold: 1,
+  });
+  const { ref: v2ref, inView: inView2 } = useInView({
+    triggerOnce: true,
+    threshold: 1,
+  });
+  const { ref: v3ref, inView: inView3 } = useInView({
+    triggerOnce: true,
+    threshold: 1,
   });
 
-  const icon1 = linkHover.icon1 ? "animate__animated animate__flash" : "";
-  const icon2 = linkHover.icon2 ? "animate__animated animate__flash" : "";
-  const icon3 = linkHover.icon3 ? "animate__animated animate__flash" : "";
+  if (inView1) {
+    blogMotion.viewed1 = {
+      opacity: 1,
+      transition: {
+        duration: 1,
+        type: "spring",
+        delay: 0.1,
+      },
+    };
+  }
+
+  if (inView2) {
+    blogMotion.viewed2 = {
+      opacity: 1,
+      transition: {
+        duration: 1,
+        type: "spring",
+        delay: 0.3,
+      },
+    };
+  }
+
+  if (inView3) {
+    blogMotion.viewed3 = {
+      opacity: 1,
+      transition: {
+        duration: 1,
+        type: "spring",
+        delay: 0.5,
+      },
+    };
+  }
 
   return (
     <section ref={ref} className={classes.blog}>
@@ -23,9 +78,14 @@ const Blog = React.forwardRef((props, ref) => {
         <h2>بلاگ</h2>
         <p>مباحث مرتبط با دنیای برنامه نویسی</p>
       </div>
-
       <div className={classes.blog_post}>
-        <div className={classes.blog_post__box}>
+        <motion.div
+          className={classes.blog_post__box}
+          ref={v1ref}
+          variants={blogMotion}
+          whileHover="hover"
+          animate="viewed1"
+        >
           <img src={reactImg} />
           <h3>کتابخانه ی ReactJS چیست ؟</h3>
           <p>
@@ -34,17 +94,21 @@ const Blog = React.forwardRef((props, ref) => {
           </p>
           <div>
             <NavLink
-              onMouseEnter={() => setLinkHover({ icon1: true })}
-              onMouseLeave={() => setLinkHover({ icon1: false })}
               className={(navData) => (navData.isActive ? "" : classes.link)}
               to="/blog-whatIsReact"
             >
               بیشتر بخوانید
             </NavLink>
-            <img className={icon1} src={arrow} />
+            <img  src={arrow} />
           </div>
-        </div>
-        <div className={classes.blog_post__box}>
+        </motion.div>
+        <motion.div
+          className={classes.blog_post__box}
+          ref={v2ref}
+          variants={blogMotion}
+          whileHover="hover"
+          animate="viewed2"
+        >
           <img src={fronttoolsImg} />
           <h3>ابزار برای توسعه‌دهندگان Front-End</h3>
           <p>
@@ -54,17 +118,21 @@ const Blog = React.forwardRef((props, ref) => {
           </p>
           <div>
             <NavLink
-              onMouseEnter={() => setLinkHover({ icon2: true })}
-              onMouseLeave={() => setLinkHover({ icon2: false })}
               className={(navData) => (navData.isActive ? "" : classes.link)}
               to="/blog-frontendTools"
             >
               بیشتر بخوانید
             </NavLink>
-            <img className={icon2} src={arrow} />
+            <img  src={arrow} />
           </div>
-        </div>
-        <div className={`${classes.blog_post__box} ${classes.shifting}`}>
+        </motion.div>
+        <motion.div
+          className={`${classes.blog_post__box} ${classes.shifting}`}
+          ref={v3ref}
+          variants={blogMotion}
+          whileHover="hover"
+          animate="viewed3"
+        >
           <img src={futurecodingImg} />
           <h3>کارجویان آینده برنامه نویسی</h3>
           <p>
@@ -74,16 +142,14 @@ const Blog = React.forwardRef((props, ref) => {
           </p>
           <div>
             <NavLink
-              onMouseEnter={() => setLinkHover({ icon3: true })}
-              onMouseLeave={() => setLinkHover({ icon3: false })}
               className={(navData) => (navData.isActive ? "" : classes.link)}
               to="/blog-programmingFuture"
             >
               بیشتر بخوانید
             </NavLink>
-            <img className={icon3} src={arrow} />
+            <img src={arrow} />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

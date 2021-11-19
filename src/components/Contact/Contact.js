@@ -1,12 +1,41 @@
 import React from "react";
 import classes from "./Contact.module.css";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 import locationImg from "./../../assets/img-contact/location.svg";
 import mailImg from "./../../assets/img-contact/mail.svg";
 import phoneImg from "./../../assets/img-contact/phone.svg";
 import ContactForm from "./ContactForm";
 
+const contactMotion = {
+  viewed: {
+    opacity: 0,
+    transition: {
+      duration: 1,
+      type: "spring",
+      delay: 0.2,
+    },
+  },
+};
+
 const Contact = React.forwardRef((props, ref) => {
+  const { ref: vref, inView: inView } = useInView({
+    triggerOnce: true,
+    threshold: 1,
+  });
+
+  if (inView) {
+    contactMotion.viewed = {
+      opacity: 1,
+      transition: {
+        duration: 1,
+        type: "spring",
+        delay: 0.3,
+      },
+    };
+  }
+
   return (
     <section ref={ref} className={classes.contact}>
       <div className={classes.contact_topic}>
@@ -15,7 +44,12 @@ const Contact = React.forwardRef((props, ref) => {
           برای ارتباط با من و درخواست پروژه از راه های ارتباطی زیر استفاده کنید
         </p>
       </div>
-      <div className={classes.contact_address}>
+      <motion.div
+        className={classes.contact_address}
+        ref={vref}
+        variants={contactMotion}
+        animate="viewed"
+      >
         <div className={classes.contact_address__box}>
           <img src={locationImg} />
           <div>
@@ -37,7 +71,7 @@ const Contact = React.forwardRef((props, ref) => {
             <p>nima.73sm@yahoo.com</p>
           </div>
         </div>
-      </div>
+      </motion.div>
       <ContactForm />
     </section>
   );
